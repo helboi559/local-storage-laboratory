@@ -21,26 +21,21 @@ formStr.addEventListener('submit', (event)=> {
 //challenge 2: PAGE LOAD COUNTER
 //get html elements
 let formReload = document.querySelector('#form-reload-count')
-// let reloadedStr = document.querySelector("#reload-count") 
-let currentCount = document.querySelector('#current-count')
+let reloadedStr = document.querySelector("#form-reload-count input") 
+
 
 //set placeholder info
-let totalCount = localStorage.getItem('totalCount');
+let currentCount = 'count'
+let totalCount = localStorage.getItem(currentCount);
 
 // if total count value doesnt exist, create item and set to num
 if(totalCount === null) {
-    currentCount.innerText = "0"
+   reloadedStr.value = 0
     // console.log(reloadedStr)
-} else {
-    currentCount.innerText = parseInt(totalCount)
-}
+} 
+totalCount ++
+localStorage.setItem(currentCount,totalCount)
 
-formReload.addEventListener("submit", (event) => {
-    event.preventDefault();
-    localStorage.setItem("totalCount",currentCount.value += 1)
-    
-
-})
 
 
 // challenege 3: list builder
